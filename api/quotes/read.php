@@ -41,7 +41,7 @@ if ($num > 0) {
         extract($row);
 
         $quote_item = array(
-            'id' => $id, // Change 'quote_id' to 'id'
+            'id' => $quote_id,
             'quote' => $quote,
             'author' => $author,
             'category' => $category
