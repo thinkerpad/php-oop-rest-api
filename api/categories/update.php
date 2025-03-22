@@ -28,9 +28,6 @@
     if ($result === "not_found") {
         echo json_encode(array('message' => 'category_id not found'));
     } elseif ($result === true) {
-        // Get the ID of the newly created category
-        $category->id = $db->lastInsertId();
-
         // Create an array with the category details
         $category_arr = array(
             'id' => $category->id,

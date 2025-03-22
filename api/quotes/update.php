@@ -29,9 +29,6 @@
     $response = $quote->update();
 
     if ($response === true) {
-        // Get the ID of the newly created quote
-        $quote->id = $db->lastInsertId();
-
         // Create an array with the quote details
         $quote_arr = array(
             'id' => $quote->id,
