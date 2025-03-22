@@ -28,7 +28,16 @@
     $response = $quote->create();
 
     if ($response === true) {
-        echo json_encode(array('message' => 'Quote Created'));
+        // Create an array with the quote details
+        $quote_arr = array(
+            'id' => $quote->id,
+            'quote' => $quote->quote,
+            'author_id' => $quote->author_id,
+            'category_id' => $quote->category_id
+        );
+
+        // Convert to JSON and output
+        echo json_encode($quote_arr);
     } elseif ($response === 'author_not_found') {
         echo json_encode(array('message' => 'author_id Not Found'));
     } elseif ($response === 'category_not_found') {
