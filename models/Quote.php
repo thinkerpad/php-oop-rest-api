@@ -8,7 +8,9 @@
         public $id;
         public $quote;
         public $author_id;
+        public $author;
         public $category_id;
+        public $category;
 
         public function __construct($db) {
             $this->conn = $db;
@@ -70,7 +72,9 @@
                 $this->id = $row['quote_id'];
                 $this->quote = $row['quote'];
                 $this->author_id = $row['author_id'];
+                $this->author = $row['author'];
                 $this->category_id = $row['category_id'];
+                $this->category = $row['category'];
             } else {
                 $this->id = null;
                 $this->quote = null;
