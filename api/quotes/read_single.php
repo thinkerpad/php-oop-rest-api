@@ -22,7 +22,7 @@
 
     // Check if the quote exists (by checking if quote attribute is null)
     if ($quote->quote === null) {
-        echo json_encode(array('message' => 'quote_id Not Found'));
+        echo json_encode(array('message' => 'No Quotes Found'));
         exit();
     }
 
