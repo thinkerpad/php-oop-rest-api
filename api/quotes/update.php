@@ -29,7 +29,19 @@
     $response = $quote->update();
 
     if ($response === true) {
-        echo json_encode(array('message' => 'Quote Updated'));
+        // Get the ID of the newly created quote
+        $quote->id = $db->lastInsertId();
+
+        // Create an array with the quote details
+        $quote_arr = array(
+            'id' => $quote->id,
+            'quote' => $quote->quote,
+            'author_id' => $quote->author_id,
+            'category_id' => $quote->category_id
+        );
+
+        // Convert to JSON and output
+        echo json_encode($quote_arr);
     } elseif ($response === 'quote_not_found') {
         echo json_encode(array('message' => 'No Quotes Found'));
     } elseif ($response === 'author_not_found') {

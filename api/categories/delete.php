@@ -27,7 +27,7 @@
     if ($result === "not_found") {
         echo json_encode(array('message' => 'category_id not found'));
     } elseif ($result === true) {
-        echo json_encode(array('message' => 'Category deleted'));
+        echo json_encode(array('id' => $category->id));
     } else {
         echo json_encode(array('message' => 'Category not deleted'));
     }

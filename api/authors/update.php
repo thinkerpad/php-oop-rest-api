@@ -28,7 +28,17 @@
   if ($result === "not_found") {
       echo json_encode(array('message' => 'Author ID not found'));
   } elseif ($result === true) {
-      echo json_encode(array('message' => 'Author Updated'));
+      // Get the ID of the newly created author
+      $author->id = $db->lastInsertId();
+
+      // Create an array with the author details
+      $author_arr = array(
+          'id' => $author->id,
+          'author' => $author->author,
+      );
+
+      // Convert to JSON and output
+      echo json_encode($author_arr);
   } else {
       echo json_encode(array('message' => 'Author not updated'));
   }

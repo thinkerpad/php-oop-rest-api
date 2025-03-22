@@ -27,7 +27,7 @@
     if ($result === "not_found") {
         echo json_encode(array('message' => 'author_id not found'));
     } elseif ($result === true) {
-        echo json_encode(array('message' => 'Author deleted'));
+        echo json_encode(array('id' => $author->id));
     } else {
         echo json_encode(array('message' => 'Author not deleted'));
     }

@@ -14,7 +14,7 @@
 
     // Check if input is empty or author is missing
     if (!isset($data->author) || empty(trim($data->author))) {
-        echo "Missing Required Parameters";
+        echo json_encode(array('message' => 'Missing Required Parameters'));
         exit; // Terminate the script
     }
 

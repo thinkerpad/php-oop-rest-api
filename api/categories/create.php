@@ -14,7 +14,7 @@
 
     // Check if input is empty or category is missing
     if (!isset($data->category) || empty(trim($data->category))) {
-        echo "Missing Required Parameters";
+        echo json_encode(array('message' => 'Missing Required Parameters'));
         exit; // Terminate the script
     }
 
@@ -23,9 +23,17 @@
 
     // Create Category
     if ($category->create()) {
-        echo json_encode(
-            array('message' => 'Category Created')
+        // Get the ID of the newly created category
+        $category->id = $db->lastInsertId();
+
+        // Create an array with the category details
+        $category_arr = array(
+            'id' => $category->id,
+            'category' => $category->category,
         );
+
+        // Convert to JSON and output
+        echo json_encode($category_arr);
     } else {
         echo json_encode(
             array('message' => 'Category Not Created')
