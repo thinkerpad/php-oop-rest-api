@@ -41,11 +41,9 @@ if ($num > 0) {
         extract($row);
 
         $quote_item = array(
-            'quote_id' => $quote_id,
+            'id' => $id, // Change 'quote_id' to 'id'
             'quote' => $quote,
-            'author_id' => $author_id,
             'author' => $author,
-            'category_id' => $category_id,
             'category' => $category
         );
 
